@@ -1,9 +1,10 @@
 const db = require('../config/connection');
 const { User, Car, Service } = require('../models');
 const userSeeds = require('./userSeeds.json');
-// const thoughtSeeds = require('./thoughtSeeds.json');
 const carSeeds = require('./carSeeds.json');
 const serviceSeeds = require('./serviceSeeds.json');
+// const thoughtSeeds = require('./thoughtSeeds.json');
+
 
 // db.once('open', async () => {
 //   try {

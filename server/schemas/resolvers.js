@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Car, Service } = require('../models');
+const { populate } = require('../models/User');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -11,15 +12,11 @@ const resolvers = {
       return User.findOne({ username }).populate('cars');
     },
     cars: async () => {
-      return Car.find().populate('');
+      return Car.find().populate('services');
     },
-    cars: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Car.find(params).sort({ createdAt: -1 });
-    },
-    car: async (parent, { carID }) => {
-      return Car.findOne({ _id: carID });
-    },
+    services: async () => {
+      return Service.find().populate('');
+    }
   },
 
 //   Mutation: {

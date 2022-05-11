@@ -43,12 +43,12 @@ const resolvers = {
       return { token, user };
     },
 
-    addCar: async (parent, {make, model, year, odometer, color, image }) =>
+    addCar: async (parent, {username, make, model, year, odometer, color, image }) =>
     {
       const car = await Car.create ({make, model, year, odometer, color, image});
 
       await User.findOneAndUpdate(
-        {username: "roman1234"},
+        {username: username},
         {$addToSet: {cars: car._id}}
       );
       return car;

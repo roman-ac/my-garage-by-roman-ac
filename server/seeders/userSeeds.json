@@ -1,0 +1,31 @@
+[
+  {
+    "username": "Brian Kernighan",
+    "firstname": "Brian",
+    "lastname": "Kernighan",
+    "email": "bkernighan@techfriends.dev",
+    "password": "password01"
+  },
+  {
+    "username": "Max Kanat-Alexander",
+    "firstname": "Max",
+    "lastname": "Kanat-Alexander",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Why The Lucky Stiff",
+    "firstname": "Roman",
+    "lastname": "Acharya",
+    "email": "wtls@techfriends.dev",
+    "password": "password03"
+  },
+  {
+    "username": "Kent Beck",
+    "firstname": "David",
+    "lastname": "Swarbrick",
+    "email": "kbeck@techfriends.dev",
+    "password": "password04"
+  }
+  
+]

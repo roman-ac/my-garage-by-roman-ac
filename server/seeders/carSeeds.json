@@ -1,0 +1,34 @@
+[
+{
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2005,
+    "odometer": 120000,
+    "color": "White",
+    "image":""
+  },
+  {
+    "make": "Toyota",
+    "model": "Landcruiser",
+    "year": 1993,
+    "odometer": 250000,
+    "color": "Blue",
+    "image":""
+  },
+  {
+    "make": "Mazda",
+    "model": "CX5",
+    "year": 2012,
+    "odometer": 950000,
+    "color": "Red",
+    "image":""
+  },
+  {
+    "make": "Nissan",
+    "model": "Patrol",
+    "year": 1999,
+    "odometer": 150000,
+    "color": "Silver",
+    "image":""
+  }
+]

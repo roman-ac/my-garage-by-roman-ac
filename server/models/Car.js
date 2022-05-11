@@ -30,7 +30,13 @@ const carSchema = new Schema({
     },
     image: {
         type: String,
+    },
+    services: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: 'Service'
     }
+    ],
 });
 
 const Car = model('Car', carSchema);

@@ -1,0 +1,18 @@
+[
+    {
+        "cost": 500,
+        "description": "General service. Changed engine oil and filters"
+    },
+    {
+        "cost": 1200,
+        "description": "General service. Changed engine oil, filters and brake pads front/rear"
+      },
+      {
+        "cost": 1800,
+        "description": "changed front lower control arms. and both driveshafts"
+      },
+      {
+        "cost": 950,
+        "description": "replaced 3 front engine mounts"
+      }
+]

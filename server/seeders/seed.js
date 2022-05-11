@@ -1,8 +1,9 @@
 const db = require('../config/connection');
-const { User, Thought, Car } = require('../models');
+const { User, Thought, Car, Service } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const thoughtSeeds = require('./thoughtSeeds.json');
 const carSeeds = require('./carSeeds.json');
+const serviceSeeds = require('./serviceSeeds.json');
 
 // db.once('open', async () => {
 //   try {
@@ -39,10 +40,13 @@ db.once('open', async () => {
   
     await User.deleteMany({});
     await Car.deleteMany({});
+    await Service.deleteMany({});
 
     // bulk create each model
   const users = await User.insertMany(userSeeds);
   const cars = await Car.insertMany(carSeeds);
+  const services = await Service.insertMany(serviceSeeds);
+
     
   for (newCar of cars) {
     // randomly add each car to a user

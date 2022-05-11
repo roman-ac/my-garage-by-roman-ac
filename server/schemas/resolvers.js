@@ -9,7 +9,7 @@ const resolvers = {
       return User.find().populate('cars');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('cars');
+      return User.findOne( {username} ).populate('cars');
     },
     cars: async () => {
       return Car.find().populate('services');
@@ -53,6 +53,15 @@ const resolvers = {
       );
       return car;
     },
+    addService: async(parent, {carId, cost, description }) =>
+    {
+      const service = await Service.create({cost, description});
+      await Car.findOneAndUpdate(
+        {_id: carId},
+        {$addtoset:{services: service._id}}
+      );
+      return service;
+    }
 //     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
 //       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 

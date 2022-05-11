@@ -34,13 +34,8 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Car'
   }
-  ],
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+  ]
+  
 });
 
 userSchema.pre('save', async function (next) {

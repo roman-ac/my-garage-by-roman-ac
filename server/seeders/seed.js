@@ -56,7 +56,7 @@ db.once('open', async () => {
 
     // randomly add services to each car
     const tempService = services[Math.floor(Math.random() * services.length)];
-    newCar.service = tempService._id;
+    newCar.services.push(tempService._id);
     await newCar.save();
   }
 

@@ -19,29 +19,40 @@ const resolvers = {
     }
   },
 
-//   Mutation: {
-//     addUser: async (parent, { username, firstname, lastname, email, password }) => {
-//       const user = await User.create({ username, firstname, lastname, email, password });
-//       const token = signToken(user);
-//       return { token, user };
-//     },
-//     login: async (parent, { email, password }) => {
-//       const user = await User.findOne({ email });
+  Mutation: {
+    addUser: async (parent, { username, firstname, lastname, email, password }) => {
+      const user = await User.create({ username, firstname, lastname, email, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
-//       if (!user) {
-//         throw new AuthenticationError('No user found with this email address');
-//       }
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
 
-//       const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-//       if (!correctPw) {
-//         throw new AuthenticationError('Incorrect credentials');
-//       }
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
 
-//       const token = signToken(user);
+      const token = signToken(user);
 
-//       return { token, user };
-//     },
+      return { token, user };
+    },
+
+    addCar: async (parent, {make, model, year, odometer, color, image }) =>
+    {
+      const car = await Car.create ({make, model, year, odometer, color, image});
+
+      await User.findOneAndUpdate(
+        {username: "roman1234"},
+        {$addToSet: {cars: car._id}}
+      );
+      return car;
+    },
 //     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
 //       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
@@ -74,7 +85,7 @@ const resolvers = {
 //         { new: true }
 //       );
 //     },
-//   },
+   },
 };
 
 module.exports = resolvers;

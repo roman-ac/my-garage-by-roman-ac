@@ -43,9 +43,9 @@ db.once('open', async () => {
     await Service.deleteMany({});
 
     // bulk create each model
-  const users = await User.insertMany(userSeeds);
-  const cars = await Car.insertMany(carSeeds);
-  const services = await Service.insertMany(serviceSeeds);
+  const users = await User.insertMany(userSeeds); // school
+  const cars = await Car.insertMany(carSeeds); // class
+  const services = await Service.insertMany(serviceSeeds); // professor
 
     
   for (newCar of cars) {
@@ -53,6 +53,11 @@ db.once('open', async () => {
     const tempUser = users[Math.floor(Math.random() * users.length)];
     tempUser.cars.push(newCar._id);
     await tempUser.save();
+
+    // randomly add services to each car
+    const tempService = services[Math.floor(Math.random() * services.length)];
+    newCar.Service = tempService._id;
+    await newCar.save();
 
   
   }

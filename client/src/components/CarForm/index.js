@@ -35,11 +35,14 @@ const CarForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(carDetails)
     try {
       const { data } = await addCar({
         variables: {
-          carDetails,
+          ...carDetails,
+          year: parseInt(carDetails.year),
+          odometer: parseInt(carDetails.odometer),
+
           username: Auth.getProfile().data.username,
         },
       });
@@ -54,7 +57,7 @@ const CarForm = () => {
     const { name, value } = event.target;
 
     setCarDetails({
-      ...setCarDetails,
+      ...carDetails,
       [name]: value,
     });
   };
@@ -66,7 +69,7 @@ const CarForm = () => {
       {Auth.loggedIn() ? (
         <>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="carform"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">

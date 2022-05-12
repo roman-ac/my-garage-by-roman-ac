@@ -31,6 +31,11 @@ const carSchema = new Schema({
     image: {
         type: String,
     },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+      },
     services: [
       {
       type: Schema.Types.ObjectId,

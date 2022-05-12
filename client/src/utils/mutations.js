@@ -49,7 +49,7 @@ export const ADD_CAR = gql`
     $image: String
     ) 
     {
-    addThought(
+    addCar(
     username: $username,
     make: $make,
     model: $model,

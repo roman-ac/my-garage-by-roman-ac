@@ -12,20 +12,20 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
+      <div className="carformcontainer">
         <div
-          className="col-12 col-md-10 mb-3 p-3"
+          className="col-12 col-md-8"
           style={{ border: '1px dotted #1a1a1a' }}
         >
           <CarForm />
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="col-12 col-md-8">
           {loading ? (
             <div>Loading...</div>
           ) : (
             <CarList
               cars={cars}
-              title="Some Feed for Thought(s)..."
+              title="My Cars..."
             />
           )}
         </div>

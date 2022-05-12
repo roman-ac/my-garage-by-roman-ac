@@ -31,6 +31,7 @@ export const QUERY_CARS = gql`
         odometer
         color
         image
+        createdAt
     }
   }
 `;

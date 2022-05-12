@@ -11,11 +11,22 @@ const CarList = ({ cars, title }) => {
       <h3>{title}</h3>
       {cars &&
         cars.map((car) => (
-          <div key={car._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {car.thoughtAuthor} <br />
+          <div key={car._id} className="card mb-1">
+            <h4 className="card-header bg-primary text-light">
+              {car.make} 
+              <br />
+              {car.model}
+              <br />
+              {car.year}
+              <br />
+              {car.odometer}
+              <br />
+              {car.color}
+              <br />
+              {car.image}
+              <br />
               <span style={{ fontSize: '1rem' }}>
-                had this thought on {car.createdAt}
+                Serice history created on {car.createdAt}
               </span>
             </h4>
             <div className="card-body bg-light p-2">
@@ -23,9 +34,9 @@ const CarList = ({ cars, title }) => {
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${car._id}`}
+              to={`/cars/${car._id}`}
             >
-              Join the discussion on this thought.
+              View Service History
             </Link>
           </div>
         ))}

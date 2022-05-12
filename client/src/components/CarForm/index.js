@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS } from '../../utils/queries';
+import { ADD_CAR } from '../../utils/mutations';
+import { QUERY_CARS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const CarForm = () => {
+  const [carText, setCarText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addCar, { error }] = useMutation(ADD_CAR, {
+    update(cache, { data: { addCar } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { cars } = cache.readQuery({ query: QUERY_CARS });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_CARS,
+          data: { cars: [addCar, ...cars] },
         });
       } catch (e) {
         console.error(e);
@@ -31,14 +31,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addCar({
         variables: {
-          thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          carText,
+          username: Auth.getProfile().data.username,
         },
       });
 
-      setThoughtText('');
+      setCarText('');
     } catch (err) {
       console.error(err);
     }
@@ -47,8 +47,8 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
-      setThoughtText(value);
+    if (name === 'carText' && value.length <= 280) {
+      setCarText(value);
       setCharacterCount(value.length);
     }
   };
@@ -74,7 +74,7 @@ const ThoughtForm = () => {
               <textarea
                 name="thoughtText"
                 placeholder="Here's a new thought..."
-                value={thoughtText}
+                value={carText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -103,4 +103,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default CarForm;

@@ -85,4 +85,4 @@ const CommentForm = ({ thoughtId }) => {
   );
 };
 
-export default CommentForm;
+// export default CommentForm;

@@ -8,37 +8,48 @@ export const QUERY_USER = gql`
       firstname
       lastname
       email
-      thoughts {
+      cars {
         _id
-        thoughtText
-        createdAt
+        make
+        model
+        year
+        odometer
+        color
+        image
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_CARS = gql`
+  query getCars {
+    cars {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+        make
+        model
+        year
+        odometer
+        color
+        image
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_CAR = gql`
+  query getSingleCar($carId: ID!) {
+    car(carId: $carId) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
+        make
+        model
+        year
+        odometer
+        color
+        image
+      services {
+        _id: ID
+        createdAt: String
+        cost: Int
+        description: String
       }
     }
   }

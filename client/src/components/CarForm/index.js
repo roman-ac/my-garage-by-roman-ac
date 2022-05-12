@@ -8,9 +8,15 @@ import { QUERY_CARS } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const CarForm = () => {
-  const [carText, setCarText] = useState('');
-
-  const [characterCount, setCharacterCount] = useState(0);
+  const [carDetails, setCarDetails] = 
+  useState({
+    make:"", 
+    model:"",
+    year:"",
+    odometer:"",
+    color:"",
+    image:""
+  });
 
   const [addCar, { error }] = useMutation(ADD_CAR, {
     update(cache, { data: { addCar } }) {
@@ -33,12 +39,12 @@ const CarForm = () => {
     try {
       const { data } = await addCar({
         variables: {
-          carText,
+          carDetails,
           username: Auth.getProfile().data.username,
         },
       });
 
-      setCarText('');
+      setCarDetails('');
     } catch (err) {
       console.error(err);
     }
@@ -47,43 +53,76 @@ const CarForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'carText' && value.length <= 280) {
-      setCarText(value);
-      setCharacterCount(value.length);
-    }
+    setCarDetails({
+      ...setCarDetails,
+      [name]: value,
+    });
   };
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Add a Car</h3>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
-              <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={carText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
+            <input
+                  className="form-input"
+                  placeholder="Make"
+                  name="make"
+                  type="text"
+                  value={carDetails.make}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Model"
+                  name="model"
+                  type="text"
+                  value={carDetails.model}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Year"
+                  name="year"
+                  type="number"
+                  value={carDetails.year}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Odomoter"
+                  name="odometer"
+                  type="number"
+                  value={carDetails.odometer}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Color"
+                  name="color"
+                  type="text"
+                  value={carDetails.color}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Image"
+                  name="image"
+                  type="text"
+                  value={carDetails.image}
+                  onChange={handleChange}
+                />
             </div>
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Car
               </button>
             </div>
             {error && (
@@ -95,7 +134,7 @@ const CarForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to add a car. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-//import SingleThought from './pages/SingleThought';
+import SingleCar from './pages/SingleCar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -58,8 +58,11 @@ function App() {
               <Route 
                 path="/signup" 
                 element={<Signup />} 
-              />
-              
+              />  
+              {<Route 
+              path="/cars/:carId" 
+              element={<SingleCar />} 
+/> }
             </Routes>
           </div>
           <Footer />
@@ -71,7 +74,4 @@ function App() {
 
 export default App;
 
-{/* <Route 
-path="/thoughts/:thoughtId" 
-element={<SingleThought />} 
-/> */}
+

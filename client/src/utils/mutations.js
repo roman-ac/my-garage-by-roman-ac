@@ -81,7 +81,7 @@ export const ADD_SERVICE = gql`
     $description: String!
   ) {
     addService(
-      carID: $carId,
+      carId: $carId,
       cost: $cost,
       description: $description
     ) {

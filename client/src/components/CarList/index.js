@@ -26,12 +26,10 @@ const CarList = ({ cars, title }) => {
               {car.image}
               <br />
               <span style={{ fontSize: '1rem' }}>
-                Serice history created on {car.createdAt}
+                Car listed on {car.createdAt}
               </span>
             </h4>
-            <div className="card-body bg-light p-2">
-              <p>{car.carText}</p>
-            </div>
+            
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/cars/${car._id}`}

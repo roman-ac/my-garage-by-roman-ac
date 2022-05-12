@@ -7,15 +7,15 @@ import { useQuery } from '@apollo/client';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 
-import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
+import { QUERY_SINGLE_CAR } from '../utils/queries';
 
-const SingleThought = () => {
+const SingleCar = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { thoughtId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
+  const { loading, data } = useQuery(QUERY_SINGLE_CAR, {
     // pass URL parameter
-    variables: { thoughtId: thoughtId },
+    variables: { carId: carId },
   });
 
   const thought = data?.thought || {};
@@ -55,4 +55,4 @@ const SingleThought = () => {
   );
 };
 
-//export default SingleThought;
+export default SingleCar;

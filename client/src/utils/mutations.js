@@ -13,8 +13,22 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $firstname: String!, $lastname: String!, $email: String!, $password: String!) {
-    addUser(username: $username, firstname: $firstname, lastname: $lastname, email: $email, password: $password) {
+  mutation addUser(
+    $username: String!, 
+    $firstname: String!, 
+    $lastname: String!, 
+    $email: String!, 
+    $password: String!
+    ) 
+    {
+    addUser(
+      username: $username, 
+      firstname: $firstname, 
+      lastname: $lastname, 
+      email: $email, 
+      password: $password
+      ) 
+      {
       token
       user {
         _id
@@ -24,41 +38,56 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
-    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
+export const ADD_CAR = gql`
+  mutation addCar(
+    $username: String!, 
+    $make: String!, 
+    $model: String!, 
+    $year: Int!, 
+    $odometer: Int!, 
+    $color: String!, 
+    $image: String
+    ) 
+    {
+    addThought(
+    username: $username,
+    make: $make,
+    model: $model,
+    year: $year,
+    odometer: $odometer,
+    color: $color,
+    image: $image  
+    ) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
+      make
+      model
+      year
+      odometer
+      color
+      image
+      services {
         _id
-        commentText
+        cost
+        description
       }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment(
-    $thoughtId: ID!
-    $commentText: String!
-    $commentAuthor: String!
+export const ADD_SERVICE = gql`
+  mutation addService(
+    $carId: ID!,
+    $cost: Int!,
+    $description: String!
   ) {
-    addComment(
-      thoughtId: $thoughtId
-      commentText: $commentText
-      commentAuthor: $commentAuthor
+    addService(
+      carID: $carId,
+      cost: $cost,
+      description: $description
     ) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      id
+      cost
+      description
     }
   }
 `;

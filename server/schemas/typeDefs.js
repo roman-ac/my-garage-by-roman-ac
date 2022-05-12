@@ -38,6 +38,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     cars: [Car]
+    car(carId: ID!): Car
     services: [Service]
   }
 

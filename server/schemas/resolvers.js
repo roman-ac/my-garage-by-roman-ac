@@ -23,6 +23,9 @@ const resolvers = {
     cars: async () => {
       return Car.find().populate('services');
     },
+    car: async (parent, { carId }) => {
+      return Car.findOne({ _id: carId });
+    },
     services: async () => {
       return Service.find().populate('');
     }

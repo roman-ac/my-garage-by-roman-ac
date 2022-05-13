@@ -10,7 +10,7 @@ import CarForm from '../components/CarForm';
 
 import { QUERY_CARS } from '../utils/queries';
 
-const Profile = () => {
+const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_CARS);
   const cars = data?.cars || [];
 
@@ -51,4 +51,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Dashboard;

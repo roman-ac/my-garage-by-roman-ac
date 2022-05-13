@@ -17,15 +17,15 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <button className="buttonnav btn" href="/profile">
-                Profile
-              </button>
-              <button className="buttonnav btn">
-                Service History
-              </button>
-              <button className="buttonnav btn">
-                Blog
-              </button>
+              <Link className="buttonnav btn" to="/dashboard">
+              Dashboard
+              </Link>
+              <Link className="buttonnav btn" to="/cars">
+              My Cars
+              </Link>
+              <Link className="buttonnav btn" to="/blog">
+              Blog
+              </Link>
               <button className="buttonsgout btn" onClick={logout}
               href="/home"
               >

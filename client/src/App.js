@@ -14,7 +14,8 @@ import Login from './pages/Login';
 import SingleCar from './pages/SingleCar';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Profile from './pages/Profile';
+import Dashboard from './pages/Dashboard';
+import Cars from './pages/Cars'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -53,8 +54,12 @@ function App() {
                 element={<Home />} 
               />
               <Route 
-                path="/profile" 
-                element={<Profile />} 
+                path="/dashboard" 
+                element={<Dashboard />} 
+              />
+              <Route 
+                path="/cars" 
+                element={<Cars />} 
               />
               <Route 
                 path="/login" 

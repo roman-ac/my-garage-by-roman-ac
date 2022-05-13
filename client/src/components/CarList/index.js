@@ -13,6 +13,7 @@ const CarList = ({ cars, title }) => {
         cars.map((car) => (
           <div key={car._id} className="card mb-1">
             <h4 className="card-header bg-primary text-light">
+              <div>
               <h5>Make: {car.make}</h5>
               <h5>Model: {car.model}</h5>
               <h5>Year: {car.year}</h5>
@@ -33,7 +34,7 @@ const CarList = ({ cars, title }) => {
             >
               View Service History
             </Link>
-
+            </div>
             </h4>
             
             

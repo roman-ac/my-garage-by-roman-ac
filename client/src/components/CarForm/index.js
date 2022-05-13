@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
@@ -6,7 +7,6 @@ import { ADD_CAR } from '../../utils/mutations';
 import { QUERY_CARS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
-import Profile from '../../pages/Profile';
 
 const CarForm = () => {
   const [carDetails, setCarDetails] = 
@@ -16,7 +16,7 @@ const CarForm = () => {
     year:"",
     odometer:"",
     color:"",
-    image:(null)
+    image:"",
   });
 
   const [addCar, { error }] = useMutation(ADD_CAR, {

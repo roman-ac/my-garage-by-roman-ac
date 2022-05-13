@@ -59,7 +59,7 @@ const SingleCar = () => {
       {loading ? (
             <div>Loading...</div>
           ) : (
-        <ServiceList comments={car.make} />
+        <ServiceList services={car.services} />
           )}
       </div>
           

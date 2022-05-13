@@ -1,18 +1,14 @@
 import React from 'react';
-import Profile from './Profile';
+import Dashboard from './Dashboard';
 import Auth from '../utils/auth';
-import { Link } from 'react-router-dom';
-
-
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_CARS);
-  // const cars = data?.cars || [];
+  
 
   return (
     <main>
           {Auth.loggedIn() ? (
-          <Profile></Profile>  
+          <Dashboard></Dashboard>  
           ) : (
 
       <div className="carformcontainer">

@@ -26,7 +26,9 @@ const Header = () => {
               <button className="buttonnav btn">
                 Blog
               </button>
-              <button className="buttonsgout btn" onClick={logout}>
+              <button className="buttonsgout btn" onClick={logout}
+              href="/home"
+              >
                 Logout
               </button>
             </>

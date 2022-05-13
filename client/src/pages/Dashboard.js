@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
-import { Link } from 'react-router-dom';
+import Home from './Home';
 
 
 
@@ -41,10 +41,7 @@ const Dashboard = () => {
       </div>
          
     ) : (
-        <p>
-          You need to be logged in to add a car. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
+        <Home/>
     )
     }         
     </main>

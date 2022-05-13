@@ -27,7 +27,7 @@ const Header = () => {
               Blog
               </Link>
               <button className="buttonsgout btn" onClick={logout}
-              href="/home"
+              href="/"
               >
                 Logout
               </button>

@@ -56,9 +56,13 @@ const SingleCar = () => {
         <ServiceForm carId={car._id} />
       </div>
       <div className="my-5">
+      {loading ? (
+            <div>Loading...</div>
+          ) : (
         <ServiceList comments={car.make} />
+          )}
       </div>
-
+          
     </div>
   );
 };

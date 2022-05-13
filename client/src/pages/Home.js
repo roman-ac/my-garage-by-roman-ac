@@ -1,35 +1,43 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import Profile from './Profile';
+import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
-import CarList from '../components/CarList';
-import CarForm from '../components/CarForm';
 
-import { QUERY_CARS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_CARS);
-  const cars = data?.cars || [];
+  // const { loading, data } = useQuery(QUERY_CARS);
+  // const cars = data?.cars || [];
 
   return (
     <main>
-      <div className="carformcontainer">
-        <div
-          className="col-12 col-md-8"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <CarForm />
-        </div>
-        <div className="col-12 col-md-8">
-          {loading ? (
-            <div>Loading...</div>
+          {Auth.loggedIn() ? (
+          <Profile></Profile>  
           ) : (
-            <CarList
-              cars={cars}
-              title="My Cars..."
-            />
-          )}
+
+      <div className="carformcontainer">
+        <div>
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>    
+        <h1>Welcome to My Garage!</h1>
+        <br/>
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+        <br/>  
+
         </div>
       </div>
+    )
+    }
     </main>
   );
 };

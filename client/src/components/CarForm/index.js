@@ -6,6 +6,7 @@ import { ADD_CAR } from '../../utils/mutations';
 import { QUERY_CARS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
+import Profile from '../../pages/Profile';
 
 const CarForm = () => {
   const [carDetails, setCarDetails] = 
@@ -36,6 +37,7 @@ const CarForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(carDetails)
+    
     try {
       const { data } = await addCar({
         variables: {
@@ -50,7 +52,7 @@ const CarForm = () => {
       setCarDetails('');
     } catch (err) {
       console.error(err);
-    }
+    } 
   };
 
   const handleChange = (event) => {
@@ -64,6 +66,13 @@ const CarForm = () => {
 
   return (
     <div>
+      <div>
+        <h3>Welcome {Auth.getProfile().data.username} ! </h3>
+      </div>
+        <br/>
+    <div
+        style={{ border: '1px dotted #1a1a1a' }}
+        >
       <h3>Add a Car</h3>
 
       {Auth.loggedIn() ? (
@@ -141,6 +150,9 @@ const CarForm = () => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
+    </div>
+        <br/>
+        <br/>
     </div>
   );
 };

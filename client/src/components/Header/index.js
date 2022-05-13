@@ -17,7 +17,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <button className="buttonnav btn">
+              <button className="buttonnav btn" href="/profile">
                 Profile
               </button>
               <button className="buttonnav btn">

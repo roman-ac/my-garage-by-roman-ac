@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_SERVICE } from '../../utils/mutations';
-import { QUERY_SINGLE_CAR } from '../../utils/queries';
 import { QUERY_SERVICES } from '../../utils/queries';
 
 
@@ -13,11 +12,9 @@ import Auth from '../../utils/auth';
 
 const ServiceForm = (carId) => {
   const [serviceDetails, setServiceDetails] = useState({
-    carId:"",
     cost:"",
     description:"",
   });
-
 
   const [addService, { error }] = useMutation(ADD_SERVICE, {
     update(cache, { data: { addService } }) {
@@ -43,7 +40,7 @@ const ServiceForm = (carId) => {
         variables: {
           ...serviceDetails,
           cost: parseInt(serviceDetails.cost),
-          username: Auth.getProfile().data.username,
+          carId: Auth.getProfile().data.carId,
         },
       });
 

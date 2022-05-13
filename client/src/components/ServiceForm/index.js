@@ -5,11 +5,13 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_SERVICE } from '../../utils/mutations';
 import { QUERY_SINGLE_CAR } from '../../utils/queries';
+import { QUERY_SERVICES } from '../../utils/queries';
+
 
 
 import Auth from '../../utils/auth';
 
-const ServiceForm = ({ carId }) => {
+const ServiceForm = () => {
   const [serviceDetails, setServiceDetails] = useState({
     cost:"",
     description:"",
@@ -19,10 +21,10 @@ const ServiceForm = ({ carId }) => {
   const [addService, { error }] = useMutation(ADD_SERVICE, {
     update(cache, { data: { addService } }) {
       try {
-        const { services } = cache.readQuery({ query: QUERY_SINGLE_CAR });
+        const { services } = cache.readQuery({ query: QUERY_SERVICES });
 
         cache.writeQuery({
-          query: QUERY_SINGLE_CAR,
+          query: QUERY_SERVICES,
           data: { services: [addService, ...services] },
         });
       } catch (e) {

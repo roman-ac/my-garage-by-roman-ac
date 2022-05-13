@@ -7,13 +7,13 @@ import { useQuery } from '@apollo/client';
 import ServiceList from '../components/ServiceList';
 import ServiceForm from '../components/ServiceForm';
 
-import { QUERY_SINGLE_CAR } from '../utils/queries';
+import { QUERY_SERVICES } from '../utils/queries';
 
 const SingleCar = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { carId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_CAR, {
+  const { loading, data } = useQuery(QUERY_SERVICES, {
     // pass URL parameter
     variables: { carId: carId },
   });

@@ -73,7 +73,7 @@ const resolvers = {
       const service = await Service.create({cost, description});
       await Car.findOneAndUpdate(
         {_id: carId},
-        {$addtoset:{services: service._id}}
+        {$addToSet:{services: service._id}}
       );
       return service;
     }

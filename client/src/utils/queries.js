@@ -56,7 +56,7 @@ export const QUERY_SINGLE_CAR = gql`
   }
 `;
 
-export const QUERY_SERVICE = gql`
+export const QUERY_SERVICES = gql`
   query getServices {
     services {
         _id

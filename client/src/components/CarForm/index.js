@@ -15,7 +15,7 @@ const CarForm = () => {
     year:"",
     odometer:"",
     color:"",
-    image:""
+    image:(null)
   });
 
   const [addCar, { error }] = useMutation(ADD_CAR, {

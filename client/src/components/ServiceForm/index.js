@@ -17,7 +17,7 @@ const ServiceForm = ({ carId }) => {
 
 
   const [addService, { error }] = useMutation(ADD_SERVICE, {
-    update(cache, { data: { addCar } }) {
+    update(cache, { data: { addService } }) {
       try {
         const { services } = cache.readQuery({ query: QUERY_SINGLE_CAR });
 

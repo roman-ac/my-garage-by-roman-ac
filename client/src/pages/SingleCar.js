@@ -45,12 +45,13 @@ const SingleCar = () => {
         </blockquote>
       </div>
 
-      <div className="my-5">
-        <ServiceList comments={car.make} />
-      </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <ServiceForm carId={car._id} />
       </div>
+      <div className="my-5">
+        <ServiceList comments={car.make} />
+      </div>
+
     </div>
   );
 };

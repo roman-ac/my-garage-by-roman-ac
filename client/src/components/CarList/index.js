@@ -13,29 +13,30 @@ const CarList = ({ cars, title }) => {
         cars.map((car) => (
           <div key={car._id} className="card mb-1">
             <h4 className="card-header bg-primary text-light">
-              {car.make} 
-              <br />
-              {car.model}
-              <br />
-              {car.year}
-              <br />
-              {car.odometer}
-              <br />
-              {car.color}
-              <br />
-              {car.image}
-              <br />
+              <h5>Make: {car.make}</h5>
+              <h5>Model: {car.model}</h5>
+              <h5>Year: {car.year}</h5>
+              <h5>Odometer: {car.odometer} km</h5>
+              <h5>Color: {car.color}</h5>
+              <h5>Image: {car.image}</h5>
               <span style={{ fontSize: '1rem' }}>
-                Car listed on {car.createdAt}
+                Listed on {car.createdAt}
               </span>
-            </h4>
-            
-            <Link
-              className="btn btn-primary btn-block btn-squared"
+              <Link
+              className="btn"
+              style={{
+                fontSize: '1rem',
+                border: '2px solid #1a1a1a',
+                marginLeft:'35px', 
+              }}
               to={`/cars/${car._id}`}
             >
               View Service History
             </Link>
+
+            </h4>
+            
+            
           </div>
         ))}
     </div>

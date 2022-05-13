@@ -47,7 +47,7 @@ const typeDefs = gql`
     addUser(username: String!, firstname: String!, lastname: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addCar(username: String!, make: String!, model: String!, year: Int!, odometer: Int!, color: String!, image: String): Car
-    addService(carId: ID!, cost: Int!, description: String!): Service
+    addService(carId: ID!, cost: Int!, description: String!): Car
   }
 `;
 

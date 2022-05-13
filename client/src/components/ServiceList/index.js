@@ -26,7 +26,7 @@ const ServiceList = ({ services, title }) => {
               {service.description}
               <br />
               <span style={{ fontSize: '1rem' }}>
-                Car listed on {service.createdAt}
+                Service done on {service.createdAt}
               </span>
             </h4>
                 <p className="card-body">{service.commentText}</p>

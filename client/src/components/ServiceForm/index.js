@@ -11,8 +11,9 @@ import { QUERY_SERVICES } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ServiceForm = () => {
+const ServiceForm = (carId) => {
   const [serviceDetails, setServiceDetails] = useState({
+    carId:"",
     cost:"",
     description:"",
   });
@@ -42,7 +43,7 @@ const ServiceForm = () => {
         variables: {
           ...serviceDetails,
           cost: parseInt(serviceDetails.cost),
-          commentAuthor: Auth.getProfile().data.username,
+          username: Auth.getProfile().data.username,
         },
       });
 

@@ -24,7 +24,7 @@ export const QUERY_USER = gql`
 export const QUERY_CARS = gql`
   query getCars {
     cars {
-      _id
+       _id
         make
         model
         year
@@ -39,7 +39,7 @@ export const QUERY_CARS = gql`
 export const QUERY_SINGLE_CAR = gql`
   query getSingleCar($carId: ID!) {
     car(carId: $carId) {
-      _id
+        _id
         make
         model
         year
@@ -52,6 +52,17 @@ export const QUERY_SINGLE_CAR = gql`
         cost: Int
         description: String
       }
+    }
+  }
+`;
+
+export const QUERY_SERVICE = gql`
+  query getServices {
+    services {
+        _id
+        createdAt
+        cost
+        description
     }
   }
 `;

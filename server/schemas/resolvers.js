@@ -28,7 +28,10 @@ const resolvers = {
     },
     services: async () => {
       return Service.find().populate('');
-    }
+    },
+    service: async (parent, { serviceId }) => {
+      return Service.findOne({ _id: serviceId }).populate();
+    },
   },
 
   Mutation: {

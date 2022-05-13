@@ -41,6 +41,7 @@ const typeDefs = gql`
     cars: [Car]
     car(carId: ID!): Car
     services: [Service]
+    service(serviceId:ID!):Service
   }
 
   type Mutation {

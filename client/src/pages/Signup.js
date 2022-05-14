@@ -49,7 +49,7 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/dashboard">back to the homepage.</Link>
+                <Link to="/dashboard">Welcome to your page.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -104,12 +104,26 @@ const Signup = () => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="my-3 p-3"
+              style ={{
+                color: 'white'
+              }}
+              >
+               <br/>
                 {error.message}
               </div>
             )}
           </div>
         </div>
+        <br/>
+        <br/>
+        <div>
+          <>
+            <Link className="buttonsgup btn" to="/">
+              Home
+            </Link>
+          </>
+        </div>  
       </div>
     </main>
   );

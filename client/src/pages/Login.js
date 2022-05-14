@@ -43,49 +43,66 @@ const Login = (props) => {
   return (
     <main className="homecontainer">
       <div className="garagecontainer col-12 col-lg-10">
-        <div className="logincard">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/profile">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="submitbtn btn"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+        
+          <div className="logincard">
+            <h4 className="card-header">Login</h4>
+            <div className="card-body">
+              {data ? (
+                <p>
+                  Success! You may now head{' '}
+                  <Link to="/profile">back to the homepage.</Link>
+                </p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className="form-input"
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    className="submitbtn btn"
+                    style={{ cursor: 'pointer' }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+              {error && (
+                <div className="my-3 p-3"
+                style ={{
+                  color: 'white'
+                }}
+                >
+                  <br/>
+                  {error.message}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+            <br/>
+            <br/>    
+          <div>
+            <>
+              <Link className="buttonsgup btn" to="/">
+                Home
+              </Link>
+            </>
+          </div>        
+
+               
       </div>
     </main>
   );

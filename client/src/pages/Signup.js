@@ -41,8 +41,8 @@ const Signup = () => {
   };
 
   return (
-    <main className="signupcontainer">
-      <div className="col-12 col-lg-10">
+    <main className="homecontainer">
+      <div className="garagecontainer col-12 col-lg-10">
         <div className="signupcard">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">

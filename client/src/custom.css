@@ -73,6 +73,19 @@ p {
     
 }
 
+.cargif {
+  width: 5rem;
+  height: 5rem; 
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.titlecontainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .btncontainer {
     width: 90%;
     margin-left: auto;
@@ -110,16 +123,21 @@ p {
   }
   
 .btn:hover {
-    background-color: #cecece;
+    background-color: #48f809;
   }
 
 .buttonsgin {
-    font-size: 1.25rem;
-    padding: 0.8rem 1.4rem;
-    margin: 0.625rem;
-    background-color: #f0e32c;
+    border-radius: 50%;
+    width: 100%;
+    height:150%;
+    border:10px solid rgba(243, 239, 7, 0.983);
+    font-size: 2rem;
+    padding: 4rem 3rem 0.5rem 3rem;
+    background-color: rgba(255,255,255,0.5);
     color: black;
-}
+    align-content: center;
+
+  }
 
 .buttonsgout {
     font-size: 1.25rem;
@@ -127,52 +145,38 @@ p {
     margin: 0.625rem;
     background-color: #d55052;
     color: white;
+    cursor: pointer;
 }
 
 .buttonsgup {
     font-size: 1.25rem;
     padding: 0.8rem 1.4rem;
     margin: 0.625rem;
-    background-color: #78cfc9;
+    background-color: #05e8f8;
     color: #1a1a1a;
 }
 
 /* Login Container*/
 
-.logincontainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1.375rem;
-  width:100%;
-  height:65vh;
-}
-
-.signupcontainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1.375rem;
-  width:100%;
-  height:65vh;
-}
 .logincard {
-  border: 1px solid silver;
+  border: 2px solid white;
+  box-shadow: 7px 7px black;
   border-radius: 5px;
   margin-bottom: 1rem;
-  box-shadow: 2px 2px silver;
   width: 50%;
   height:12rem;
+  background-image: url("../src/assets/garage.jpeg");
+  background-size: cover;
 }
 .signupcard {
-  border: 1px solid silver;
+  border: 2px solid white;
+  box-shadow: 7px 7px black;
   border-radius: 5px;
   margin-bottom: 1rem;
-  box-shadow: 2px 2px silver;
   width: 50%;
   height:18rem;
+  background-image: url("../src/assets/garage.jpeg");
+  background-size: cover;
 }
 
 .card-header {
@@ -194,7 +198,7 @@ p {
 
 .submitbtn {
   margin-top: 10px;
-  background-color: rgb(136, 185, 139);
+  background-color: white;
 }
 
 /* navigator*/
@@ -234,6 +238,35 @@ p {
   padding-left:3rem;
 
 }
+
+/* homepage*/
+
+.homecontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height:75vh;
+  justify-content: center;
+
+}
+
+.garagecontainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-image: url("../src/assets/garage.jpeg");
+  width:70%;
+  height:85%;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 10px black;
+
+
+}
+
+
+
 
 
 

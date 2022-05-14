@@ -16,8 +16,8 @@ const Cars = () => {
     const { loading, data } = useQuery(QUERY_USER, {
         variables: {username : username},
     });
-    const user = data?.user || [{}];
-    console.log(data);
+    const car = data?.user.cars || [{}];
+    console.log(car);
   
     return (
       <main>
@@ -31,7 +31,7 @@ const Cars = () => {
               <div>Loading...</div>
             ) : (
               <CarList
-                cars={user}
+                cars={car}
                 title="My Cars..."
               />
             )}

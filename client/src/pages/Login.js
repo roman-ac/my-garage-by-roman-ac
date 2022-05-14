@@ -41,8 +41,8 @@ const Login = (props) => {
   };
 
   return (
-    <main className="logincontainer">
-      <div className="col-12 col-lg-10">
+    <main className="homecontainer">
+      <div className="garagecontainer col-12 col-lg-10">
         <div className="logincard">
           <h4 className="card-header">Login</h4>
           <div className="card-body">

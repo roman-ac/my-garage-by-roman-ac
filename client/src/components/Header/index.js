@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
+import carGif from '../../assets/car.gif';
 
 const Header = () => {
   const logout = (event) => {
@@ -11,8 +12,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="btncontainer">
-        <div>
-            <h1 className="">My Garage</h1>
+        
+        <div className='titlecontainer'>
+          <img className="cargif" src={carGif} alt='carGif'></img>
+          <h1 className="">My Garage</h1>
         </div>
         <div>
           {Auth.loggedIn() ? (
@@ -34,9 +37,6 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="buttonsgin btn" to="/login">
-                Login
-              </Link>
               <Link className="buttonsgup btn" to="/signup">
                 Signup
               </Link>

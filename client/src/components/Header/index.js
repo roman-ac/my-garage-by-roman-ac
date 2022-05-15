@@ -20,7 +20,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="buttonnav btn" to="/dashboard">
+              <Link className="buttonnav btn" to="/dashboard/">
               Dashboard
               </Link>
               <Link className="buttonnav btn" to="/cars">

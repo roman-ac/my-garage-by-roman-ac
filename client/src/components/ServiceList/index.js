@@ -9,27 +9,28 @@ const ServiceList = ({ services, title }) => {
   
   return (
     <>
+    <div>
       <h3
-        className="p-5 display-inline-block"
-        style={{ borderBottom: '1px dotted #1a1a1a' }}
+        style={{ 
+          color:'black',
+          borderBottom:'5px solid black',
+          borderRadius:'15px',
+          marginBottom:'20px'        }}
       >
         Service History
       </h3>
-      <div className="flex-row my-4">
+
         {services &&
           services.map((service) => (
-            <div key={service._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
-              <h4 className="card-header bg-primary text-light">
-              {service.cost} 
-              <br />
-              {service.description}
-              <br />
-              <span style={{ fontSize: '1rem' }}>
-                Service done on {service.createdAt}
-              </span>
-            </h4>
-                <p className="card-body">{service.commentText}</p>
+            <div key={service._id} className="col-12">
+              <div className="servicelistcontainer">
+                <div>
+                <h5>Cost: ${service.cost}</h5>
+                <h5>Description: {service.description}</h5>
+                <span style={{ fontSize: '1rem' }}>
+                  Service done on {service.createdAt}
+                </span>
+                </div>                
               </div>
             </div>
           ))}

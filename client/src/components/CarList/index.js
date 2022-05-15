@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CarList = ({ cars, title }) => {
-  if (!cars.length) {
-    return <h3>No Cars Yet</h3>;
-  }
+  // if (!cars.length) {
+  //   return <h3>No Cars Yet</h3>;
+  // }
 
   return (
     <div>
@@ -18,7 +18,7 @@ const CarList = ({ cars, title }) => {
           >{title}</h3>
               {cars &&
                 cars.map((car) => (
-        <div key={car._id}>
+        <div key={car._id} className="col-12">
           <div className="carlistcontainer">
             <div>
               <h5>Image: {car.image}</h5>
@@ -37,7 +37,7 @@ const CarList = ({ cars, title }) => {
                 border: '2px solid #1a1a1a',
                 marginLeft:'35px', 
               }}
-              to={`/cars/${car._id}`}
+              to={`/car/${car._id}`}
               >
               View Service History
               </Link> 

@@ -50,7 +50,7 @@ const Login = (props) => {
               {data ? (
                 <p>
                   Success! You may now head{' '}
-                  <Link to="/profile">back to the homepage.</Link>
+                  <Link to="/dashboard">back to the homepage.</Link>
                 </p>
               ) : (
                 <form onSubmit={handleFormSubmit}>
@@ -75,7 +75,7 @@ const Login = (props) => {
                     style={{ cursor: 'pointer' }}
                     type="submit"
                   >
-                    Submit
+                    Login
                   </button>
                 </form>
               )}

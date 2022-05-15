@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <main>
           {Auth.loggedIn() ? (
-          <Dashboard></Dashboard>  
+          <Dashboard/>  
           ) : (
 
       <div className="homecontainer">

@@ -10,7 +10,7 @@ import { QUERY_SERVICES } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ServiceForm = (carId) => {
+const ServiceForm = () => {
   const [serviceDetails, setServiceDetails] = useState({
     cost:"",
     description:"",
@@ -34,13 +34,14 @@ const ServiceForm = (carId) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(serviceDetails)
 
     try {
       const { data } = await addService({
         variables: {
           ...serviceDetails,
           cost: parseInt(serviceDetails.cost),
-          carId: Auth.getProfile().data.carId,
+          username: Auth.getProfile().data.username,
         },
       });
 
@@ -61,13 +62,19 @@ const ServiceForm = (carId) => {
 
   return (
     <div>
-      <h4>Add a Service</h4>
+    <div className="serviceform">
+      <h4
+      style={{
+        color:'black',
+        borderBottom:'5px solid yellow',
+        borderRadius:'15px'
+      }}
+      >Add a Service</h4>
 
       {Auth.loggedIn() ? (
         
         <>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
@@ -85,14 +92,18 @@ const ServiceForm = (carId) => {
                 placeholder="Add service details"
                 value={serviceDetails.description}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: '4', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="buttonadd btn" type="submit">
-                Add to Service History
+              <button className="buttonadd btn" type="submit"
+              style ={{
+                cursor: 'pointer'
+              }}
+              >
+                Add Service
               </button>
             </div>
           </form>
@@ -103,6 +114,7 @@ const ServiceForm = (carId) => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
+    </div>
     </div>
   );
 };

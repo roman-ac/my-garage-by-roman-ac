@@ -75,7 +75,7 @@ function App() {
                 element={<Signup />} 
               />  
               {<Route 
-              path="/cars/:carId" 
+              path="/car/:carId" 
               element={<SingleCar />} 
 /> }
             </Routes>

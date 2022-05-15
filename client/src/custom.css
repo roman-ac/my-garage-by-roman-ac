@@ -283,6 +283,39 @@ p {
   
 }
 
+/* Dashboard (ServiceForm/ServiceList) */
+
+.serviceformcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width:100%;
+}
+
+.serviceform {
+  margin-bottom: 1rem;
+  padding-left:3rem;
+  background-image: url("../src/assets/garage.jpeg");
+  width:50%;
+  border-radius: 20px;
+  box-shadow: 10px 10px black;
+}
+
+.servicelistcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  float:left;
+  justify-content: center;
+  align-items: center;
+  background-color: #41462845;
+  color: black;
+  margin:3%;
+  padding: 0.625rem;
+  width:44%;
+}
+
 
 
 

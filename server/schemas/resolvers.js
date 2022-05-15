@@ -13,7 +13,7 @@ const resolvers = {
     });
     },
     user: async (parent, { username }) => {
-      return User.findOne( {username} ).populate('cars').populate(
+      return User.findOne( {username: username} ).populate('cars').populate(
         {
           path: 'cars',
           populate: 'services'
@@ -30,7 +30,7 @@ const resolvers = {
       return Service.find().populate('');
     },
     service: async (parent, { serviceId }) => {
-      return Service.findOne({ _id: serviceId }).populate();
+      return Service.findOne({ _id: serviceId }).populate('');
     },
   },
 
@@ -72,7 +72,7 @@ const resolvers = {
     {
       const service = await Service.create({cost, description});
       await Car.findOneAndUpdate(
-        {_id: carId},
+        {carId: carId},
         {$addToSet:{services: service._id}}
       );
       return service;

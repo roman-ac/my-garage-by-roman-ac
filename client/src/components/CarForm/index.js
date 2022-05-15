@@ -70,15 +70,18 @@ const CarForm = () => {
         <h3>Welcome {Auth.getProfile().data.username} ! </h3>
       </div>
         <br/>
-    <div
-        style={{ border: '1px dotted #1a1a1a' }}
-        >
-      <h3>Add a Car</h3>
+    <div className="carform">
+      <h3
+      style={{
+        color:'black',
+        borderBottom:'5px solid yellow',
+        borderRadius:'15px'
+      }}
+      >Add a Car</h3>
 
       {Auth.loggedIn() ? (
         <>
           <form
-            className="carform"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
@@ -133,7 +136,7 @@ const CarForm = () => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit"
+              <button className="buttonadd btn" type="submit"
               style ={{
                 cursor: 'pointer'
               }}
@@ -142,7 +145,11 @@ const CarForm = () => {
               </button>
             </div>
             {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
+              <div className="col-12"
+              style={{
+                color:'white'
+              }}
+              >
                 {error.message}
               </div>
             )}

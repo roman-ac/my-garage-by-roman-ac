@@ -100,9 +100,7 @@ const Login = (props) => {
                 Home
               </Link>
             </>
-          </div>        
-
-               
+          </div>              
       </div>
     </main>
   );

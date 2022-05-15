@@ -8,18 +8,25 @@ const CarList = ({ cars, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
-      {cars &&
-        cars.map((car) => (
-          <div key={car._id} className="card mb-1">
-            <h4 className="card-header bg-primary text-light">
-              <div>
+          <h3
+              style={{
+                color:'black',
+                borderBottom:'5px solid black',
+                borderRadius:'15px',
+                marginBottom:'20px'
+              }}
+          >{title}</h3>
+              {cars &&
+                cars.map((car) => (
+        <div key={car._id}>
+          <div className="carlistcontainer">
+            <div>
+              <h5>Image: {car.image}</h5>
               <h5>Make: {car.make}</h5>
               <h5>Model: {car.model}</h5>
               <h5>Year: {car.year}</h5>
               <h5>Odometer: {car.odometer} km</h5>
               <h5>Color: {car.color}</h5>
-              <h5>Image: {car.image}</h5>
               <span style={{ fontSize: '1rem' }}>
                 Listed on {car.createdAt}
               </span>
@@ -31,14 +38,12 @@ const CarList = ({ cars, title }) => {
                 marginLeft:'35px', 
               }}
               to={`/cars/${car._id}`}
-            >
+              >
               View Service History
-            </Link>
+              </Link> 
             </div>
-            </h4>
-            
-            
           </div>
+        </div>
         ))}
     </div>
   );

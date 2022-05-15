@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation, useReactiveVar } from '@apollo/client';
 
 import { ADD_SERVICE } from '../../utils/mutations';
 import { QUERY_SERVICES } from '../../utils/queries';
@@ -9,8 +9,9 @@ import { QUERY_SERVICES } from '../../utils/queries';
 
 
 import Auth from '../../utils/auth';
+//import { __Directive } from 'graphql';
 
-const ServiceForm = () => {
+const ServiceForm = (carId) => {
   const [serviceDetails, setServiceDetails] = useState({
     cost:"",
     description:"",
@@ -39,9 +40,9 @@ const ServiceForm = () => {
     try {
       const { data } = await addService({
         variables: {
+          carId,
           ...serviceDetails,
           cost: parseInt(serviceDetails.cost),
-          username: Auth.getProfile().data.username,
         },
       });
 

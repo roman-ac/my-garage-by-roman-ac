@@ -65,27 +65,22 @@ export const ADD_CAR = gql`
       odometer
       color
       image
-      services {
-        _id
-        cost
-        description
-      }
     }
   }
 `;
 
 export const ADD_SERVICE = gql`
   mutation addService(
-    $carId: ID!,
-    $cost: Int!,
+    $carId: ID!
+    $cost: Int!
     $description: String!
   ) {
     addService(
-      carId: $carId,
-      cost: $cost,
+      carId: $carId
+      cost: $cost
       description: $description
     ) {
-      id
+      _id
       cost
       description
     }

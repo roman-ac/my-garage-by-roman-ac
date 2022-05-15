@@ -15,7 +15,7 @@
   },
   {
     "username": "Why The Lucky Stiff",
-    "firstname": "Roman",
+    "firstname": "Romano",
     "lastname": "Acharya",
     "email": "wtls@techfriends.dev",
     "password": "password03"
@@ -28,11 +28,11 @@
     "password": "password04"
   },
   {
-    "username": "roman",
-    "firstname": "Roman",
-    "lastname": "Ac",
-    "email": "roman@roman.com",
-    "password": "roman123"
+    "username": "sam",
+    "firstname": "sam",
+    "lastname": "sam",
+    "email": "sam@sam.com",
+    "password": "sam123"
   }
   
 ]

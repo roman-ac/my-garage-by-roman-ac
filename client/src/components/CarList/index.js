@@ -18,20 +18,20 @@ const CarList = ({ cars, title }) => {
           >{title}</h3>
               {cars &&
                 cars.map((car) => (
-        <div key={car._id} className="col-12">
+        <div key={car._id} className="carlistmaindiv col-12">
           <div className="carlistcontainer">
             <div>
               <h5>Image: {car.image}</h5>
-              <h5>Make: {car.make}</h5>
+              <h4>Make: {car.make}</h4>
               <h5>Model: {car.model}</h5>
-              <h5>Year: {car.year}</h5>
-              <h5>Odometer: {car.odometer} km</h5>
-              <h5>Color: {car.color}</h5>
-              <span style={{ fontSize: '1rem' }}>
+              <h6>Color: {car.color}</h6>
+              <h6>Odometer: {car.odometer} km</h6>
+              <h6>Year: {car.year}</h6>
+              <h6 style={{ fontSize: '1rem' }}>
                 Listed on {car.createdAt}
-              </span>
+              </h6>
               <Link
-              className="btn"
+              className="buttonsh btn"
               style={{
                 fontSize: '1rem',
                 border: '2px solid #1a1a1a',

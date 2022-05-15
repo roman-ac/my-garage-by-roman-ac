@@ -18,7 +18,7 @@ const Blog = () => {
             <br/>  
             <br/>  
             <br/>    
-            <h1>This is Blog Page !</h1>
+            <h1>Under Construction !</h1>
             <br/>
             <br/>  
             <br/>  

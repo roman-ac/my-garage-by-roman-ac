@@ -52,7 +52,7 @@ const username = Auth.getProfile().data.username;
       </div>
          
     ) : (
-        <Home/>
+        <Home></Home>
     )
     }         
     </main>

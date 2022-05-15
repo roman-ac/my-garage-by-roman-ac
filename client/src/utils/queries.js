@@ -16,6 +16,7 @@ export const QUERY_USER = gql`
         odometer
         color
         image
+        createdAt
       }
     }
   }
@@ -32,6 +33,12 @@ export const QUERY_CARS = gql`
         color
         image
         createdAt
+        services {
+          _id
+          createdAt
+          cost
+          description
+        }
     }
   }
 `;
@@ -46,11 +53,12 @@ export const QUERY_SINGLE_CAR = gql`
         odometer
         color
         image
-      services {
-        _id: ID
-        createdAt: String
-        cost: Int
-        description: String
+        createdAt
+        services {
+          _id: ID
+          createdAt
+          cost
+          description
       }
     }
   }

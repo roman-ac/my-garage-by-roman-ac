@@ -41,11 +41,11 @@ const CarForm = () => {
     try {
       const { data } = await addCar({
         variables: {
+          username: Auth.getProfile().data.username,
           ...carDetails,
           year: parseInt(carDetails.year),
           odometer: parseInt(carDetails.odometer),
 
-          username: Auth.getProfile().data.username,
         },
       });
 

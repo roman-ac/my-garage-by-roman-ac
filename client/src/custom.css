@@ -6,7 +6,7 @@
 
 html,
 body {
-  min-height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -17,6 +17,7 @@ body {
     'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
+  height:100vh;
 }
 
 h1,
@@ -182,7 +183,7 @@ p {
 
 .card-header {
   padding: 0.375rem;
-  background-color: #41462845;
+  background-color: #f1d20d;
   color: black;
   padding: 0.625rem;
 }
@@ -263,18 +264,35 @@ p {
   box-shadow: 10px 10px black;
 }
 
-.carlistcontainer{
+.carlistmaindiv {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   float:left;
+  border: 2px solid black;
+  margin:10px;
+  border-radius: 20px;
+  width:48%;
+
+}
+.carlistcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #41462845;
+  background-color: #ffffffff;
   color: black;
-  margin:3%;
-  padding: 0.625rem;
-  width:44%;
+  border:2px solid black;
+  padding:5px;
+  border-radius: 20px;
+  margin:1px;
+  padding: 0.5rem;
+  width:100%;
+}
+
+.buttonsh {
+  background-color: #99d1e6;
 }
 
 .buttonadd {

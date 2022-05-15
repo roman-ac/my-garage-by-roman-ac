@@ -27,7 +27,7 @@ const Header = () => {
               My Cars
               </Link>
               <Link className="buttonnav btn" to="/blog">
-              Blog
+              Forum
               </Link>
               <button className="buttonsgout btn" onClick={logout}
               href="/"

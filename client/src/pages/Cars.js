@@ -17,7 +17,7 @@ const Cars = () => {
     });
 
     useEffect(() => {
-      console.log(data?.user || []);
+      console.log(data?.user.cars || []);
   }, [data]);
 
   const cars = data?.user.cars || {};

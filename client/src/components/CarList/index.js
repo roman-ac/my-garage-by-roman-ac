@@ -16,7 +16,7 @@ const CarList = ({ cars, title }) => {
                 marginBottom:'20px'
               }}
           >{title}</h3>
-              {cars &&
+            {cars &&
                 cars.map((car) => (
         <div key={car._id} className="carlistmaindiv col-12">
           <div className="carlistcontainer">

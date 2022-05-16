@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
-// import { useParams  } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 import Home from './Home';
 import CarList from '../components/CarList';
 import { QUERY_USER } from '../utils/queries';
 
 const Cars = () => {
 
-    // const { username } = useParams();
-    const username = Auth.getProfile().data.username;
+    const { username } = useParams();
+    //const username = Auth.getProfile().data.username;
 
 
     const { loading, data } = useQuery(QUERY_USER, {
@@ -20,7 +20,7 @@ const Cars = () => {
       console.log(data?.user.cars || []);
   }, [data]);
 
-  const cars = data?.user.cars || {};
+  const user = data?.user || {};
 
 
     return (
@@ -35,7 +35,7 @@ const Cars = () => {
               <div>Loading...</div>
             ) : (
               <CarList
-                cars={cars}
+                cars={user.cars}
                 title="My Cars..."
               />
             )}

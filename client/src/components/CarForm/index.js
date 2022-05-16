@@ -79,7 +79,7 @@ const CarForm = () => {
       }}
       >Add a Car</h3>
 
-      {Auth.loggedIn() ? (
+      
         <>
           <form
             onSubmit={handleFormSubmit}
@@ -155,12 +155,7 @@ const CarForm = () => {
             )}
           </form>
         </>
-      ) : (
-        <p>
-          You need to be logged in to add a car. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
+      
     </div>
         <br/>
         <br/>
@@ -169,3 +164,12 @@ const CarForm = () => {
 };
 
 export default CarForm;
+
+// {Auth.loggedIn() ? (
+
+// ) : (
+//   { <p>
+//   You need to be logged in to add a car. Please{' '}
+//   <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+//  </p>}
+// )}

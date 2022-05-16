@@ -10,8 +10,7 @@ import CarForm from '../components/CarForm';
 import { QUERY_USER } from '../utils/queries';
 
 const Dashboard = () => {
-//   const { loading, data } = useQuery(QUERY_CARS);
-//   const cars = data?.cars || [];
+
 const username = Auth.getProfile().data.username;
 // const { username } = useParams();
 

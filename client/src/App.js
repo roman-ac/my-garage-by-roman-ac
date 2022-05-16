@@ -55,11 +55,11 @@ function App() {
                 element={<Home />} 
               />
               <Route 
-                path="/dashboard" 
+                path="/dashboard/:username" 
                 element={<Dashboard />} 
               />
               <Route 
-                path="/cars" 
+                path="/cars/:username" 
                 element={<Cars />} 
               />
               <Route 

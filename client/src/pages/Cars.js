@@ -8,7 +8,7 @@ import { QUERY_USER } from '../utils/queries';
 
 const Cars = () => {
 
-    const username  = useParams();
+    const {username}  = useParams();
     //const username = Auth.getProfile().data.username;
 
 

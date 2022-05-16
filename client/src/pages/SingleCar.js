@@ -6,16 +6,23 @@ import ServiceList from '../components/ServiceList';
 import ServiceForm from '../components/ServiceForm';
 
 import { QUERY_SINGLE_CAR } from '../utils/queries';
+// import { QUERY_SERVICES } from '../utils/queries';
 
 
 const SingleCar = () => {
   // Use `useParams()` to retrieve value of the route parameter ``
-  const { carId } = useParams();
+  const { carId: userParam } = useParams();
+    // const { loading, data } = useQuery(QUERY_SERVICES, {
 
-  const { loading, data } = useQuery(QUERY_SINGLE_CAR, {
+  console.log(userParam);
+
+  const { loading, data } = useQuery(userParam ? QUERY_SINGLE_CAR: {
+  // const { loading, data } = useQuery(QUERY_SERVICES, {
     // pass URL parameter
-    variables: { carId: carId },
+    variables: { carId: userParam },
   });
+
+  
 
   useEffect(() => {
     console.log(data?.car || []);
@@ -36,7 +43,9 @@ const SingleCar = () => {
       <div
           className="col-12 col-md-8"
         >
-        <ServiceForm />
+        <ServiceForm 
+        carId= {userParam}
+        />
         </div>
 
       </div>

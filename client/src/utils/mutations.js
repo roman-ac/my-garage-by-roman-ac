@@ -46,7 +46,7 @@ export const ADD_CAR = gql`
     $year: Int!, 
     $odometer: Int!, 
     $color: String!, 
-    $image: String
+    $image: Upload
     ) 
     {
     addCar(

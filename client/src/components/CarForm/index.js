@@ -16,11 +16,13 @@ const CarForm = () => {
     year:"",
     odometer:"",
     color:"",
-    image:"",
   });
+  const [image, setImage] = useState(null);
+
 
   const [addCar, { error }] = useMutation(ADD_CAR, {
     update(cache, { data: { addCar } }) {
+
       try {
         const { cars } = cache.readQuery({ query: QUERY_CARS });
 
@@ -32,7 +34,10 @@ const CarForm = () => {
         console.error(e);
       }
     },
+    
   });
+
+  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -42,6 +47,7 @@ const CarForm = () => {
       const { data } = await addCar({
         variables: {
           username: Auth.getProfile().data.username,
+          image,
           ...carDetails,
           year: parseInt(carDetails.year),
           odometer: parseInt(carDetails.odometer),
@@ -125,14 +131,10 @@ const CarForm = () => {
                   value={carDetails.color}
                   onChange={handleChange}
                 />
-                <input
-                  className="form-input"
-                  placeholder="Image"
-                  name="image"
-                  type="text"
-                  value={carDetails.image}
-                  onChange={handleChange}
-                />
+                <input type="file" onChange={(event) => {
+                setImage(event.target.files[0])
+                }} />
+                {<img style={{maxWidth: "50%"}} src={addCar.image} alt="" />}
             </div>
 
             <div className="col-12 col-lg-3">

@@ -2,16 +2,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation, useReactiveVar } from '@apollo/client';
-
 import { ADD_SERVICE } from '../../utils/mutations';
 import { QUERY_SERVICES } from '../../utils/queries';
 
 
 
 import Auth from '../../utils/auth';
-//import { __Directive } from 'graphql';
 
 const ServiceForm = (carId) => {
+
   const [serviceDetails, setServiceDetails] = useState({
     cost:"",
     description:"",
@@ -21,7 +20,6 @@ const ServiceForm = (carId) => {
     update(cache, { data: { addService } }) {
       try {
         const { services } = cache.readQuery({ query: QUERY_SERVICES });
-
         cache.writeQuery({
           query: QUERY_SERVICES,
           data: { services: [addService, ...services] },
@@ -36,6 +34,7 @@ const ServiceForm = (carId) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(serviceDetails)
+
 
     try {
       const { data } = await addService({

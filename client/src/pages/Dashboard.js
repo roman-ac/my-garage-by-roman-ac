@@ -12,7 +12,7 @@ import { QUERY_USER } from '../utils/queries';
 const Dashboard = () => {
 
 const username = Auth.getProfile().data.username;
-// const { username } = useParams();
+
 
     const { loading, data } = useQuery(QUERY_USER, {
         variables: {username : username},

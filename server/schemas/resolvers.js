@@ -2,6 +2,11 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Car, Service } = require('../models');
 const { populate } = require('../models/User');
 const { signToken } = require('../utils/auth');
+const fs = require("fs");
+const path = require("path");
+const {v4: uuid} = require('uuid');
+const { finished } = require('stream/promises');
+const { GraphQLUpload } = require('graphql-upload');
 
 const resolvers = {
   Query: {
@@ -34,12 +39,26 @@ const resolvers = {
     },
   },
 
+  Upload: GraphQLUpload,
+  
   Mutation: {
+
+    upload: async (_, { file }) => {
+      let { createReadStream, filename, mimetype, encoding } = await file;
+      const stream = createReadStream();
+      filename = uuid() + filename;
+      const out = fs.createWriteStream(path.join(__dirname, "../uploads/" + filename));
+      stream.pipe(out);
+      await finished(out);
+      return { filename, mimetype, encoding };
+    },
+
     addUser: async (parent, { username, firstname, lastname, email, password }) => {
       const user = await User.create({ username, firstname, lastname, email, password });
       const token = signToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -60,7 +79,16 @@ const resolvers = {
 
     addCar: async (parent, {username, make, model, year, odometer, color, image }) =>
     {
-      const car = await Car.create ({make, model, year, odometer, color, image});
+      
+
+      let { createReadStream, filename, mimetype, encoding } = await image;
+      const stream = createReadStream();
+      filename = uuid() + filename;
+      const out = fs.createWriteStream(path.join(__dirname, "../uploads/" + filename));
+      stream.pipe(out);
+      await finished(out);
+
+      const car = await Car.create ({make, model, year, odometer, color, image:filename});
 
       await User.findOneAndUpdate(
         {username: username},
@@ -68,6 +96,7 @@ const resolvers = {
       );
       return car;
     },
+
     addService: async(parent, {carId, cost, description }) =>
     {
       const service = await Service.create({cost, description});
@@ -77,38 +106,7 @@ const resolvers = {
       );
       return service;
     }
-//     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-//       const thought = await Thought.create({ thoughtText, thoughtAuthor });
-
-//       await User.findOneAndUpdate(
-//         { username: thoughtAuthor },
-//         { $addToSet: { thoughts: thought._id } }
-//       );
-
-//       return thought;
-//     },
-//     addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-//       return Thought.findOneAndUpdate(
-//         { _id: thoughtId },
-//         {
-//           $addToSet: { comments: { commentText, commentAuthor } },
-//         },
-//         {
-//           new: true,
-//           runValidators: true,
-//         }
-//       );
-//     },
-//     removeThought: async (parent, { thoughtId }) => {
-//       return Thought.findOneAndDelete({ _id: thoughtId });
-//     },
-//     removeComment: async (parent, { thoughtId, commentId }) => {
-//       return Thought.findOneAndUpdate(
-//         { _id: thoughtId },
-//         { $pull: { comments: { _id: commentId } } },
-//         { new: true }
-//       );
-//     },
+//     
    },
 };
 

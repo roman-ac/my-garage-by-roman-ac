@@ -55,7 +55,7 @@ export const QUERY_SINGLE_CAR = gql`
         image
         createdAt
         services {
-          _id: ID
+          _id
           createdAt
           cost
           description

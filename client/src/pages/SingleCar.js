@@ -6,30 +6,24 @@ import ServiceList from '../components/ServiceList';
 import ServiceForm from '../components/ServiceForm';
 
 import { QUERY_SINGLE_CAR } from '../utils/queries';
-// import { QUERY_SERVICES } from '../utils/queries';
 
 
 const SingleCar = () => {
+  
   // Use `useParams()` to retrieve value of the route parameter ``
   const { carId: userParam } = useParams();
-    // const { loading, data } = useQuery(QUERY_SERVICES, {
-
   console.log(userParam);
 
-  const { loading, data } = useQuery(userParam ? QUERY_SINGLE_CAR: {
-  // const { loading, data } = useQuery(QUERY_SERVICES, {
-    // pass URL parameter
+  const { loading, data } = useQuery(QUERY_SINGLE_CAR, {
     variables: { carId: userParam },
   });
 
-  
 
   useEffect(() => {
     console.log(data?.car || []);
 }, [data]);
     
   const car = data?.car || [];
-
 
   console.log(car);
 

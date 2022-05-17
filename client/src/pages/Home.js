@@ -6,11 +6,14 @@ import Auth from '../utils/auth';
 
 const Home = () => {
   
+  
 
   return (
     <main>
           {Auth.loggedIn() ? (
-          <Dashboard/>  
+          <Dashboard
+          username={Auth.getProfile().data.username}
+          />  
           ) : (
 
       <div className="homecontainer">

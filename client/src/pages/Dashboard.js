@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { useQuery } from '@apollo/client';
-// import { useParams  } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 import Home from './Home';
@@ -11,21 +11,22 @@ import { QUERY_USER } from '../utils/queries';
 
 const Dashboard = () => {
 
-const username = Auth.getProfile().data.username;
+// const username = Auth.getProfile().data.username;
 
+const { username: userParam } = useParams();
+console.log(userParam);
 
     const { loading, data } = useQuery(QUERY_USER, {
-        variables: {username : username},
+        variables: {username : userParam},
     });
 
 
     useEffect(() => {
       console.log(data?.user || []);
-  }, [data]);
+    }, [data]);
 
   const user = data?.user || [];
   console.log(user);
-  console.log(data);
 
   return (
     <main>

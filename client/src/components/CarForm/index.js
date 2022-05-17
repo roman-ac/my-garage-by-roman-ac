@@ -44,7 +44,7 @@ const CarForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(carDetails);
-    
+
     try {
       
       const { data } = await addCar({

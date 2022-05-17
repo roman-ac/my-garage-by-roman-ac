@@ -21,29 +21,33 @@ const CarForm = () => {
 
 
 
-  const [addCar, { error }] = useMutation(ADD_CAR, {
-    update(cache, { data: { addCar } }) {
-
-      try {
-        const { cars } = cache.readQuery({ query: QUERY_CARS });
-        cache.writeQuery({
-          query: QUERY_CARS,
-          data: { cars: [addCar, ...cars] },
-        },
-        
-        );
-
-      } catch (e) {
-        console.error(e);
-      } 
-    },
+  const [addCar, { error }] = useMutation(ADD_CAR
     
-  });
+  //   , {
+  //   update(cache, { data: { addCar } }) {
+
+  //     try {
+  //       const { cars } = cache.readQuery({ query: QUERY_CARS });
+  //       cache.writeQuery({
+  //         query: QUERY_CARS,
+  //         data: { cars: [addCar, ...cars] },
+  //       },
+        
+  //       );
+
+  //     } catch (e) {
+  //       console.error(e);
+  //     } 
+  //   },
+    
+  // }
+  
+  );
 
 
   
   const handleFormSubmit = async (event) => {
-    //event.preventDefault();
+    event.preventDefault();
     console.log(carDetails);
 
     try {

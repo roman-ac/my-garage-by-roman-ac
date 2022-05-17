@@ -15,22 +15,7 @@ const ServiceForm = ({carId}) => {
   const [description, setDescription] = useState('');
 
 
-  const [addService, { error }] = useMutation(ADD_SERVICE
-    // update(cache, { data: { addCost, addDescription } }) {
-    //   try {
-    //     const { services } = cache.readQuery({ query: QUERY_SERVICES });
-    //     cache.writeQuery({
-    //       query: QUERY_SERVICES,
-    //       data: { 
-    //         cost : [addCost, ...services],
-    //         description : [addDescription, ...services]
-    //       },
-    //     });
-    //   } catch (e) {
-    //     console.error(e);
-    //   }
-    // },
-  );
+  const [addService, { error }] = useMutation(ADD_SERVICE);
   
 
   const handleFormSubmit = async (event) => {

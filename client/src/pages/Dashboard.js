@@ -11,8 +11,6 @@ import { QUERY_USER } from '../utils/queries';
 
 const Dashboard = () => {
 
-// const username = Auth.getProfile().data.username;
-
 const { username: userParam } = useParams();
 console.log(userParam);
 

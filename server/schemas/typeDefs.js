@@ -59,7 +59,7 @@ scalar Upload
     addUser(username: String!, firstname: String!, lastname: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     upload(file: Upload!): File!
-    addCar(username: String!, make: String!, model: String!, year: Int!, odometer: Int!, color: String!, image: Upload): Car
+    addCar(username: String!, make: String!, model: String!, year: Int!, odometer: Int!, color: String!, image: Upload): User
     addService(carId: ID!, cost: Int!, description: String!): Car
   }
 `;

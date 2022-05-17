@@ -59,12 +59,20 @@ export const ADD_CAR = gql`
     image: $image  
     ) {
       _id
-      make
-      model
-      year
-      odometer
-      color
-      image
+      username
+      firstname
+      lastname
+      email
+      cars {
+        _id
+        make
+        model
+        year
+        odometer
+        color
+        image
+        createdAt
+      }  
     }
   }
 `;

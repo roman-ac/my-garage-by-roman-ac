@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { ADD_CAR } from '../../utils/mutations';
 import { QUERY_CARS } from '../../utils/queries';
@@ -15,7 +15,7 @@ const CarForm = () => {
     model:"",
     year:"",
     odometer:"",
-    color:"",
+    color:""
   });
   const [image, setImage] = useState(null);
 
@@ -25,25 +25,28 @@ const CarForm = () => {
 
       try {
         const { cars } = cache.readQuery({ query: QUERY_CARS });
-
         cache.writeQuery({
           query: QUERY_CARS,
           data: { cars: [addCar, ...cars] },
-        });
+        },
+        cache.readQuery({query: QUERY_CARS}),
+        
+        );
+
       } catch (e) {
         console.error(e);
-      }
+      } 
     },
     
   });
 
-  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(carDetails)
+    console.log(carDetails);
     
     try {
+      
       const { data } = await addCar({
         variables: {
           username: Auth.getProfile().data.username,
@@ -53,8 +56,9 @@ const CarForm = () => {
           odometer: parseInt(carDetails.odometer),
 
         },
-      });
 
+      });
+      
       setCarDetails('');
     } catch (err) {
       console.error(err);

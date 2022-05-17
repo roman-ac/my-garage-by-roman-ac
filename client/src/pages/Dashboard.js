@@ -18,12 +18,14 @@ const username = Auth.getProfile().data.username;
         variables: {username : username},
     });
 
+
     useEffect(() => {
       console.log(data?.user || []);
   }, [data]);
 
   const user = data?.user || [];
   console.log(user);
+  console.log(data);
 
   return (
     <main>

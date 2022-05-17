@@ -15,7 +15,7 @@ const CarForm = () => {
     model:"",
     year:"",
     odometer:"",
-    color:""
+    color:"",
   });
   const [image, setImage] = useState(null);
 
@@ -30,7 +30,6 @@ const CarForm = () => {
           query: QUERY_CARS,
           data: { cars: [addCar, ...cars] },
         },
-        cache.readQuery({query: QUERY_CARS}),
         
         );
 
@@ -42,8 +41,9 @@ const CarForm = () => {
   });
 
 
+  
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     console.log(carDetails);
 
     try {
@@ -60,6 +60,7 @@ const CarForm = () => {
 
       });
       
+
       setCarDetails('');
       setImage('');
     } catch (err) {
@@ -69,6 +70,7 @@ const CarForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(carDetails);
 
     setCarDetails({
       ...carDetails,
@@ -141,7 +143,7 @@ const CarForm = () => {
                 <input type="file" onChange={(event) => {
                 setImage(event.target.files[0])
                 }} />
-                {<img style={{maxWidth: "50%"}} src={addCar.image} alt="" />}
+                {<img style={{maxWidth: "25%"}} src={addCar.image} alt="" />}
             </div>
 
             <div className="col-12 col-lg-3">

@@ -60,7 +60,7 @@ scalar Upload
     login(email: String!, password: String!): Auth
     upload(file: Upload!): File!
     addCar(username: String!, make: String!, model: String!, year: Int!, odometer: Int!, color: String!, image: Upload): Car
-    addService(carId: ID!, cost: Int!, description: String!): Service
+    addService(carId: ID!, cost: Int!, description: String!): Car
   }
 `;
 

@@ -89,7 +89,7 @@ const resolvers = {
       await finished(out);
 
       const car = await Car.create ({make, model, year, odometer, color, image:filename});
-
+      console.log(car);
       await User.findOneAndUpdate(
         {username: username},
         {$addToSet: {cars: car._id}}
@@ -100,11 +100,14 @@ const resolvers = {
     addService: async(parent, {carId, cost, description }) =>
     {
       const service = await Service.create({cost, description});
-      await Car.findOneAndUpdate(
-        {carId: carId},
-        {$addToSet:{services: service._id}}
+      
+      const car = await Car.findOneAndUpdate(
+        {_id: carId},
+        {$addToSet:{services: service._id}},
+        {new: true}
       );
-      return service;
+        await car.populate('services');
+        return car
     }
 //     
    },

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 const CarList = ({ cars, title }) => {
   // if (!cars.length) {
   //   return <h3>No Cars Yet</h3>;
@@ -24,7 +23,7 @@ const CarList = ({ cars, title }) => {
         <div key={car._id} className="carlistmaindiv col-12">
           <div className="carlistcontainer">
             <div>
-              <h5>Image: {car.image}</h5>
+              <img style={{maxWidth: "25%"}} src={"/"+car.image} alt=""/>
               <h4>Make: {car.make}</h4>
               <h5>Model: {car.model}</h5>
               <h6>Color: {car.color}</h6>

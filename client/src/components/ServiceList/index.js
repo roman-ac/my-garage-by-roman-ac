@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ServiceList = ( {services = []}) => {
-  if (!services.length) {
-    return <h3>No Services Yet</h3>;
-  }
+  // if (!services.length) {
+  //   return <h3>No Services Yet</h3>;
+  // }
 
   console.log(services)
   

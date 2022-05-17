@@ -9,56 +9,51 @@ import { QUERY_SERVICES } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ServiceForm = (carId) => {
+const ServiceForm = ({carId}) => {
 
-  const [serviceDetails, setServiceDetails] = useState({
-    cost:"",
-    description:"",
-  });
+  const [cost, setCost] = useState('');
+  const [description, setDescription] = useState('');
 
-  const [addService, { error }] = useMutation(ADD_SERVICE, {
-    update(cache, { data: { addService } }) {
-      try {
-        const { services } = cache.readQuery({ query: QUERY_SERVICES });
-        cache.writeQuery({
-          query: QUERY_SERVICES,
-          data: { services: [addService, ...services] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    },
-  });
+
+  const [addService, { error }] = useMutation(ADD_SERVICE
+    // update(cache, { data: { addCost, addDescription } }) {
+    //   try {
+    //     const { services } = cache.readQuery({ query: QUERY_SERVICES });
+    //     cache.writeQuery({
+    //       query: QUERY_SERVICES,
+    //       data: { 
+    //         cost : [addCost, ...services],
+    //         description : [addDescription, ...services]
+    //       },
+    //     });
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // },
+  );
   
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(serviceDetails)
 
 
     try {
       const { data } = await addService({
         variables: {
           carId,
-          ...serviceDetails,
-          cost: parseInt(serviceDetails.cost),
+          cost: parseInt(cost),
+          description,
         },
       });
 
-      setServiceDetails('');
+      setCost('');
+      setDescription('');
+      
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setServiceDetails({
-      ...serviceDetails,
-      [name]: value,
-    });
-  };
 
   return (
     <div>
@@ -83,18 +78,18 @@ const ServiceForm = (carId) => {
                   placeholder="Cost"
                   name="cost"
                   type="number"
-                  value={serviceDetails.cost}
-                  onChange={handleChange}
+                  value={cost}
+                  onChange={(event) => setCost(event.target.value)}
                 />
               
               <textarea
                 name="description"
                 placeholder="Add service details"
-                value={serviceDetails.description}
+                value={description}
                 className="form-input w-100"
                 style={{ lineHeight: '4', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
+                onChange={(event) => setDescription(event.target.value)}
+                ></textarea>
             </div>
 
             <div className="col-12 col-lg-3">

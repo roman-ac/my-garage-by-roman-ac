@@ -9,7 +9,7 @@ import CarForm from '../components/CarForm';
 
 import { QUERY_USER } from '../utils/queries';
 
-const Dashboard = (username) => {
+const Dashboard = () => {
 
 // const username = Auth.getProfile().data.username;
 

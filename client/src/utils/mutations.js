@@ -71,18 +71,29 @@ export const ADD_CAR = gql`
 
 export const ADD_SERVICE = gql`
   mutation addService(
-    $carId: ID!
-    $cost: Int!
+    $carId: ID!,
+    $cost: Int!,
     $description: String!
   ) {
     addService(
-      carId: $carId
-      cost: $cost
+      carId: $carId,
+      cost: $cost,
       description: $description
     ) {
       _id
-      cost
-      description
+        make
+        model
+        year
+        odometer
+        color
+        image
+        createdAt
+        services {
+          _id
+          createdAt
+          cost
+          description
     }
   }
+}
 `;

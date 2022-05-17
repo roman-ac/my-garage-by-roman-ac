@@ -9,7 +9,7 @@ import CarForm from '../components/CarForm';
 
 import { QUERY_USER } from '../utils/queries';
 
-const Dashboard = () => {
+const Dashboard = (username) => {
 
 // const username = Auth.getProfile().data.username;
 
@@ -38,7 +38,9 @@ console.log(userParam);
         <div
           className="col-12 col-md-8"
         >
-          <CarForm />
+          <CarForm 
+          username={user.username}
+          />
         </div>
         <div className="col-12 col-md-8">
           {loading ? (

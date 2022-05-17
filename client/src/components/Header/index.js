@@ -20,14 +20,14 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
+              <Link className="buttonnav btn" to="/blog">
+              Forum
+              </Link>
               <Link className="buttonnav btn" to={`/dashboard/${Auth.getProfile().data.username}`}>
               Dashboard
               </Link>
               <Link className="buttonnav btn" to={`/cars/${Auth.getProfile().data.username}`}>
               My Cars
-              </Link>
-              <Link className="buttonnav btn" to="/blog">
-              Forum
               </Link>
               <button className="buttonsgout btn" onClick={logout}
               href="/"

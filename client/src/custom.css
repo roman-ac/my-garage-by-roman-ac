@@ -334,6 +334,28 @@ p {
   width:44%;
 }
 
+/* forum */
+
+
+.forumcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-image: url("../src/assets/garage.jpeg");
+  width:70%;
+  min-height:60vh;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 10px black;
+  margin-bottom: 30px;;
+}
+
+.forumcontainer h1 {
+  color:black;
+
+}
+
 
 
 

@@ -20,6 +20,7 @@ const CarForm = () => {
   const [image, setImage] = useState(null);
 
 
+
   const [addCar, { error }] = useMutation(ADD_CAR, {
     update(cache, { data: { addCar } }) {
 
@@ -60,6 +61,7 @@ const CarForm = () => {
       });
       
       setCarDetails('');
+      setImage('');
     } catch (err) {
       console.error(err);
     } 
@@ -72,6 +74,7 @@ const CarForm = () => {
       ...carDetails,
       [name]: value,
     });
+    
   };
 
   return (

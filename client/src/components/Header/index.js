@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-import carGif from '../../assets/car.gif';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const logout = (event) => {
@@ -14,7 +14,7 @@ const Header = () => {
       <div className="btncontainer">
         
         <div className='titlecontainer'>
-          <img className="cargif" src={carGif} alt='carGif'></img>
+          <img className="logo" src={logo} alt='logo'></img>
           <h1 className="">My Garage</h1>
         </div>
         <div>

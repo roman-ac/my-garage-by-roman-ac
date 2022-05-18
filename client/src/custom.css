@@ -78,11 +78,10 @@ p {
     
 }
 
-.cargif {
+.logo {
   width: 5rem;
-  height: 5rem; 
-  border-radius: 50%;
-  margin-right: 10px;
+  height: 4rem; 
+  
 }
 
 .titlecontainer{
@@ -167,7 +166,6 @@ p {
 /* Login Container*/
 
 .logincard {
-  border: 2px solid white;
   box-shadow: 7px 7px black;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -177,8 +175,6 @@ p {
   background-size: cover;
 }
 .signupcard {
-  
-  border: 2px solid white;
   box-shadow: 7px 7px black;
   border-radius: 5px;
   margin-bottom: 1rem;

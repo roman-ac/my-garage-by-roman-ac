@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import Auth from '../utils/auth';
+import Home from './Home';
 import ServiceList from '../components/ServiceList';
 import ServiceForm from '../components/ServiceForm';
 
@@ -32,27 +33,31 @@ const SingleCar = () => {
   }
   return (
 <main>
-<div>
-      <div  className="serviceformcontainer">
-      <div
-          className="col-12 col-md-8"
-        >
-        <ServiceForm 
-        carId= {car._id}
-        />
+{Auth.loggedIn() ? (
+
+      <div className="serviceformcontainer" >
+        <div
+            className="col-12 col-md-8"
+          >
+          <ServiceForm 
+          carId= {car._id}
+          />
+          </div>
+
+        <div className="col-12 col-md-8">
+        {loading ? (
+              <div>Loading...</div>
+            ) : (
+          <ServiceList services={car.services} />
+            )}
         </div>
 
-      </div>
-      <div className="col-12 col-md-8">
-      {loading ? (
-            <div>Loading...</div>
-          ) : (
-        <ServiceList services={car.services} />
-          )}
-      </div>
-          
     </div>
-    </main>
+  ) : (
+    <Home></Home>
+)
+}         
+  </main>
 
   );
 };

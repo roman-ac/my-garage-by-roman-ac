@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 
 
 const CarList = ({ cars, title }) => {
-  // if (!cars.length) {
-  //   return <h3>No Cars Yet</h3>;
-
-  // }
+  
 
   return (
-    <div>
+    <div className="carlistdiv">
           <h3
               style={{
                 color:'black',

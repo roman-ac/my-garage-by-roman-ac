@@ -6,7 +6,8 @@
 
 html,
 body {
-  height: 100vh;
+height:100%;
+width:100%;
 }
 
 body {
@@ -17,7 +18,10 @@ body {
     'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
-  height:100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
 }
 
 h1,
@@ -69,7 +73,7 @@ p {
     padding-top: 20px;
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     
 }
@@ -97,13 +101,14 @@ p {
     justify-content: space-between;
 }
 
-.footer {
+.footer { 
+    position:fixed;
+    bottom:0;
     background-color: black;
     color: white;
-    margin-bottom: 10px;
+    margin-top:10px;
     width:100%;
-    height: 50px;
-    margin-top: auto;
+    height: 60px;
     padding-top: 10px;
     text-align: center;
 }
@@ -128,6 +133,8 @@ p {
   }
 
 .buttonsgin {
+    display: flex;
+    flex-direction: column;
     border-radius: 50%;
     width: 100%;
     height:150%;
@@ -227,7 +234,7 @@ p {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height:75vh;
+  min-height:100%;
   justify-content: center;
 
 }
@@ -236,9 +243,10 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  text-align: center;
   background-image: url("../src/assets/garage.jpeg");
   width:70%;
-  height:85%;
+  min-height: 70vh;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
@@ -264,6 +272,10 @@ p {
   box-shadow: 10px 10px black;
 }
 
+.carlistdiv{
+  height:100vh;
+}
+
 .carlistmaindiv {
   display: flex;
   flex-wrap: wrap;
@@ -273,8 +285,8 @@ p {
   margin:10px;
   border-radius: 20px;
   width:47%;
-
 }
+
 .carlistcontainer{
   display: flex;
   flex-wrap: wrap;
@@ -301,7 +313,7 @@ p {
   
 }
 
-/* Dashboard (ServiceForm/ServiceList) */
+/* ServiceForm/ServiceList) */
 
 .serviceformcontainer {
   display: flex;
@@ -320,19 +332,38 @@ p {
   box-shadow: 10px 10px black;
 }
 
-.servicelistcontainer{
+.servicelistdiv{
+  height:100vh;
+}
+
+.servicelistmaindiv {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   float:left;
+  border: 2px solid black;
+  margin:10px;
+  border-radius: 20px;
+  width:47%;
+}
+
+.servicelistcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #41462845;
+  background-color: #ffffffff;
   color: black;
-  margin:3%;
-  padding: 0.625rem;
-  width:44%;
+  border:2px solid black;
+  padding:5px;
+  border-radius: 20px;
+  margin:1px;
+  padding: 0.5rem;
+  width:100%;
 }
+
+
 
 /* forum */
 
@@ -341,6 +372,7 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  text-align: center;
   background-image: url("../src/assets/garage.jpeg");
   width:70%;
   min-height:60vh;

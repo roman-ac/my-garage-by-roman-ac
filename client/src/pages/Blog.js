@@ -10,7 +10,7 @@ const Blog = () => {
       <main>
             {Auth.loggedIn() ? (
                 
-            <div className="carformcontainer">
+            <div className="homecontainer">
             <div className="forumcontainer">
               
             <h1>Welcome to Your Garage {Auth.getProfile().data.username} ! </h1>

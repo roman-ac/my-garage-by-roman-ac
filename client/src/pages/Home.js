@@ -6,8 +6,6 @@ import Auth from '../utils/auth';
 
 const Home = () => {
   
-  // const data = Auth.getProfile().data;
-  // console.log(data);
   
   return (
     <main>

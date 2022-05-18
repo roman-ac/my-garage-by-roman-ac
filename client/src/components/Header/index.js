@@ -30,7 +30,7 @@ const Header = () => {
               My Cars
               </Link>
               <button className="buttonsgout btn" onClick={logout}
-              href="/"
+              to="/"
               >
                 Logout
               </button>

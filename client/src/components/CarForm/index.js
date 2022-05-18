@@ -1,51 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation} from '@apollo/client';
 
 import { ADD_CAR } from '../../utils/mutations';
-import { QUERY_CARS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
 const CarForm = () => {
   const [carDetails, setCarDetails] = 
   useState({
-    make:"", 
-    model:"",
-    year:"",
-    odometer:"",
-    color:"",
+    make:'', 
+    model:'',
+    year:'',
+    odometer:'',
+    color:''
   });
   const [image, setImage] = useState(null);
 
 
 
-  const [addCar, { error }] = useMutation(ADD_CAR
-    
-  //   , {
-  //   update(cache, { data: { addCar } }) {
+  const [addCar, { error }] = useMutation(ADD_CAR);
 
-  //     try {
-  //       const { cars } = cache.readQuery({ query: QUERY_CARS });
-  //       cache.writeQuery({
-  //         query: QUERY_CARS,
-  //         data: { cars: [addCar, ...cars] },
-  //       },
-        
-  //       );
-
-  //     } catch (e) {
-  //       console.error(e);
-  //     } 
-  //   },
-    
-  // }
-  
-  );
-
-
-  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(carDetails);
@@ -67,6 +42,7 @@ const CarForm = () => {
 
       setCarDetails('');
       setImage('');
+
     } catch (err) {
       console.error(err);
     } 
@@ -180,11 +156,3 @@ const CarForm = () => {
 
 export default CarForm;
 
-// {Auth.loggedIn() ? (
-
-// ) : (
-//   { <p>
-//   You need to be logged in to add a car. Please{' '}
-//   <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-//  </p>}
-// )}

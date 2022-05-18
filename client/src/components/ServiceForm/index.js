@@ -1,13 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation, useReactiveVar } from '@apollo/client';
+import { useMutation} from '@apollo/client';
 import { ADD_SERVICE } from '../../utils/mutations';
-import { QUERY_SERVICES } from '../../utils/queries';
 
-
-
-import Auth from '../../utils/auth';
 
 const ServiceForm = ({carId}) => {
 
@@ -49,10 +44,7 @@ const ServiceForm = ({carId}) => {
         borderBottom:'5px solid yellow',
         borderRadius:'15px'
       }}
-      >Add a Service</h4>
-
-      {Auth.loggedIn() ? (
-        
+      >Add a Service</h4>        
         <>
           <form
             onSubmit={handleFormSubmit}
@@ -88,12 +80,6 @@ const ServiceForm = ({carId}) => {
             </div>
           </form>
         </>
-      ) : (
-        <p>
-          You need to be logged in. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
     </div>
     </div>
   );

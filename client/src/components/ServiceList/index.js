@@ -1,15 +1,12 @@
 import React from 'react';
 
 const ServiceList = ( {services = []}) => {
-  // if (!services.length) {
-  //   return <h3>No Services Yet</h3>;
-  // }
 
   console.log(services)
   
   return (
     <>
-    <div>
+    <div className='servicelistdiv'>
       <h3
         style={{ 
           color:'black',
@@ -22,11 +19,12 @@ const ServiceList = ( {services = []}) => {
 
         {services &&
           services.map((service) => (
-            <div key={service._id} className="col-12">
+            <div key={service._id} className="servicelistmaindiv col-12">
               <div className="servicelistcontainer">
                 <div>
-                <h5>Cost: ${service.cost}</h5>
-                <h5>Description: {service.description}</h5>
+                <h5 style={{textDecoration:'underline'}}>Service Details</h5>
+                <h6>{service.description}</h6>
+                <h6>Cost: ${service.cost}</h6>
                 <span style={{ fontSize: '1rem' }}>
                   Service done on {service.createdAt}
                 </span>

@@ -29,11 +29,13 @@ const Header = () => {
               <Link className="buttonnav btn" to={`/cars/${Auth.getProfile().data.username}`}>
               My Cars
               </Link>
-              <button className="buttonsgout btn" onClick={logout}
+              <Link
+              className="buttonsgout btn" onClick={logout}
               to={`"/"`}
               >
                 Logout
-              </button>
+              </Link>
+
             </>
           ) : (
             <>

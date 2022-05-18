@@ -18,14 +18,13 @@ const CarList = ({ cars, title }) => {
             {cars &&
                 cars.map((car) => (
         <div key={car._id} className="carlistmaindiv col-12">
-          <div className="carlistcontainer">
-            <div>
+            <div className="carlistcontainer">
               <img style={{maxWidth: "25%"}} src={"/"+car.image} alt=""/>
-              <h4>Make: {car.make}</h4>
-              <h5>Model: {car.model}</h5>
+              <h4>{car.make}</h4>
+              <h5>{car.model}</h5>
               <h6>Color: {car.color}</h6>
-              <h6>Odometer: {car.odometer} km</h6>
               <h6>Year: {car.year}</h6>
+              <h6>Odometer: {car.odometer} km</h6>
               <h6 style={{ fontSize: '1rem' }}>
                 Listed on {car.createdAt}
               </h6>
@@ -41,8 +40,7 @@ const CarList = ({ cars, title }) => {
               View Service History
               </Link> 
             </div>
-          </div>
-        </div>
+            </div>
         ))}
     </div>
   );

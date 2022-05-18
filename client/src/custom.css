@@ -290,13 +290,12 @@ p {
 .carlistcontainer{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #ffffffff;
   color: black;
   border:2px solid black;
-  padding:5px;
   border-radius: 20px;
   margin:1px;
   padding: 0.5rem;
@@ -327,7 +326,7 @@ p {
   margin-bottom: 1rem;
   padding-left:3rem;
   background-image: url("../src/assets/garage.jpeg");
-  width:50%;
+  width:80%;
   border-radius: 20px;
   box-shadow: 10px 10px black;
 }
@@ -361,6 +360,30 @@ p {
   margin:1px;
   padding: 0.5rem;
   width:100%;
+}
+
+.singlecardisplay{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  width:60%;
+
+}
+
+.singlecarlistcontainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffff;
+  color: black;
+  border:2px solid black;
+  border-radius: 20px;
+  margin:1px;
+  padding: 0.5rem;
+  width:30%;
 }
 
 

@@ -36,20 +36,31 @@ const SingleCar = () => {
 {Auth.loggedIn() ? (
 
       <div className="serviceformcontainer" >
-        <div
-            className="col-12 col-md-8"
-          >
-          <ServiceForm 
-          carId= {car._id}
-          />
-          </div>
+        <div className='singlecardisplay'>
+            <div className="col-12 col-md-8">
+
+              <ServiceForm 
+              carId= {car._id}
+              />
+            </div>
+              
+            <div className="singlecarlistcontainer">
+              <img style={{maxWidth: "25%"}} src={"/"+car.image} alt=""/>
+              <h4>{car.make}</h4>
+              <h5>{car.model}</h5>
+              <h6>Color: {car.color}</h6>
+              <h6>Year: {car.year}</h6>
+              <h6>Odometer: {car.odometer} km</h6>
+            </div>
+
+        </div>
 
         <div className="col-12 col-md-8">
-        {loading ? (
-              <div>Loading...</div>
-            ) : (
-          <ServiceList services={car.services} />
-            )}
+            {loading ? (
+                  <div>Loading...</div>
+                ) : (
+              <ServiceList services={car.services} />
+                )}
         </div>
 
     </div>

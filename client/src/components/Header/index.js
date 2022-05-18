@@ -31,7 +31,7 @@ const Header = () => {
               </Link>
               <Link
               className="buttonsgout btn" onClick={logout}
-              to={`"/"`}
+              to={`/`}
               >
                 Logout
               </Link>

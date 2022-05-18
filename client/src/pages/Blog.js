@@ -11,11 +11,11 @@ const Blog = () => {
             {Auth.loggedIn() ? (
                 
             <div className="homecontainer">
+                <h1>Welcome to Your Garage {Auth.getProfile().data.username} ! </h1>
             <div className="forumcontainer">
-              
-            <h1>Welcome to Your Garage {Auth.getProfile().data.username} ! </h1>
-            <h1>This Page is still under construction. </h1>
-            <h1>Please head to your Dashboard.</h1>
+              <br/>
+              <h1>Forum Page is under construction. </h1>
+              <h1>Please head to your Dashboard.</h1>
             
             
 

@@ -19,7 +19,7 @@ const CarList = ({ cars, title }) => {
                 cars.map((car) => (
         <div key={car._id} className="carlistmaindiv col-12">
             <div className="carlistcontainer">
-              <img style={{maxWidth: "25%"}} src={"/"+car.image} alt=""/>
+              <img style={{maxWidth: "40%", borderRadius:'10px'}} src={"/"+car.image} alt=""/>
               <h4>{car.make}</h4>
               <h5>{car.model}</h5>
               <h6>Color: {car.color}</h6>

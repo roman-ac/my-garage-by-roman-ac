@@ -64,7 +64,7 @@ const ServiceForm = ({carId}) => {
                 placeholder="Add service details"
                 value={description}
                 className="form-input w-100"
-                style={{ lineHeight: '4', resize: 'vertical' }}
+                style={{ lineHeight: '1.5', resize: 'vertical', height: '100px' }}
                 onChange={(event) => setDescription(event.target.value)}
                 ></textarea>
             </div>

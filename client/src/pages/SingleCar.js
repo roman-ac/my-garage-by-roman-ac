@@ -45,7 +45,7 @@ const SingleCar = () => {
             </div>
               
             <div className="singlecarlistcontainer">
-              <img style={{maxWidth: "25%"}} src={"/"+car.image} alt=""/>
+              <img style={{maxWidth: "50%", borderRadius:'10px'}} src={"/"+car.image} alt=""/>
               <h4>{car.make}</h4>
               <h5>{car.model}</h5>
               <h6>Color: {car.color}</h6>

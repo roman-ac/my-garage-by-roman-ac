@@ -38,8 +38,7 @@ const CarForm = () => {
         },
 
       });
-      
-
+      event.target.submit();
       setCarDetails('');
       setImage('');
 
@@ -73,8 +72,6 @@ const CarForm = () => {
         borderRadius:'15px'
       }}
       >Add a Car</h3>
-
-      
         <>
           <form
             onSubmit={handleFormSubmit}
